@@ -67,6 +67,54 @@ public class Examen2P1_Jorge_Aguirre {
         
     }
     
+    private static void buscarEmpleado(){
+        System.out.println("\nBuscar empleado");
+        System.out.println("1. Por nombre");
+        System.out.println("2. Por numero de identificacion");
+        System.out.println("Seleccione una opcion");
+        int opcion = scanner.nextInt();
+        scanner.nextInt();
+        
+        switch(opcion){
+            case 1:
+                buscarPorNombre();
+                break;
+            case 2:
+                buscarPorID();
+                break;
+        }
+        
+        
+    }
+    
+    private static void buscarPorNombre(){
+        System.out.println("Ingrese el nombre");
+        String nombreBuscado = scanner.nextLine();
+        boolean encontrado = false;
+        
+        for(Empleado empleado : empleados){
+            if (empleado.getNombre().equalsIgnoreCase(nombreBuscado)){
+                mostrarInformacionEmpleado(empleado);
+                encontrado = true;
+            }
+        }
+        if(!encontrado){
+            System.out.println("no se pudo encontrar ese nombre");
+        }        
+    }
+    
+    private static void buscarPorID(){
+        System.out.println("Ingrese el nombre del emlpleado");
+        int idBuscado = scanner.nextInt();
+        scanner.nextLine();
+        boolean encontrado = false;
+        
+        for(Empleado empleado : empleados){
+            if (empleado.getNumIdent() == idBuscado){
+                mostrarInformacionEmpleado(empleado);
+                encontrado = true;
+                break;
+    }
     
 }
 
